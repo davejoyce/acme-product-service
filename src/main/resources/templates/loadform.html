@@ -1,0 +1,28 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Load Products | Acme</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <a href="menu.html" th:href="@{/}">&lt; Menu</a>
+    <div align="center" class="col-md-12">
+        <div class="col-md-6" style="text-align: left">
+            <h2>Load Products (Bulk Add)</h2>
+            <form action="#" th:action="@{/load}" th:object="${productsForm}" method="post">
+                <div class="form-group">
+                    <label for="csvProductEntries">Products to load (CSV)</label>
+                    <textarea id="csvProductEntries" type="" class="form-control" th:field="*{csvProductEntries}" cols="80" rows="10"></textarea>
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('csvProductEntries')}" th:errors="*{csvProductEntries}">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </body>
+</html>
