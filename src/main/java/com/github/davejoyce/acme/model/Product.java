@@ -3,7 +3,7 @@ package com.github.davejoyce.acme.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Entity(name = "product")
@@ -18,7 +18,7 @@ public class Product {
 
     private ProductType type;
     private String domain;
-    private LocalDate startDate;
+    private Date startDate;
     private int durationMonths;
 
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Add Product | Acme</title>
+  </head>
+  <body>
+    <a href="menu.html" th:href="@{/}">&lt; Menu</a>
+    <h1>Add a Product</h1>
+    <form action="#" th:action="@{/add}" th:object="${productForm}" method="post">
+        <div>
+            <input id="customerName" type="text" th:field="*{customerName}" />
+            <label for="customerName">Customer ID</label>
+        </div>
+        <div>
+            <select id="productType" th:field="*{productType}">
+                <option value="">select product</option>
+                <option th:each="productType : ${productTypes}" th:value="${productType.name}" th:text="${productType.label}"></option>
+            </select>
+            <label for="productType">Product</label>
+        </div>
+        <div>
+            <input id="domain" type="text" th:field="*{domain}" />
+            <label for="domain">Domain</label>
+        </div>
+        <div>
+            <select id="durationMonths" name="durationMonths">
+                <option value="">select duration</option>
+                <option value="12">1 year</option>
+                <option value="24">2 years</option>
+                <option value="36">3 years</option>
+                <option value="60">5 years</option>
+                <option value="120">10 years</option>
+            </select>
+            <label for="durationMonths">Duration</label>
+        </div>
+    </form>
+  </body>
+</html>

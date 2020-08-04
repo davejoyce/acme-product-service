@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu | Acme</title>
+</head>
+<body>
+    <h1>Menu</h1>
+    <p>Welcome to Acme! Select one of these actions:</p>
+    <ul>
+        <li><a href="addform.html" th:href="@{/add}">Add a Product</a></li>
+        <li><a href="#" th:href="@{/load}">Load Products (Bulk Add)</a></li>
+        <li><a href="#" th:href="@{/list}">List Products</a></li>
+        <li><a href="#" th:href="@{/email}">Show E-mail Schedule</a></li>
+    </ul>
+</body>
+</html>

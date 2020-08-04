@@ -19,6 +19,8 @@ public enum ProductType {
         this.label = label;
     }
 
+    public String getName() { return name(); }
+
     public String getLabel() {
         return label;
     }
