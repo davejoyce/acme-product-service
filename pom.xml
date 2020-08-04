@@ -19,6 +19,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+
+        <opencsv.version>5.2</opencsv.version>
     </properties>
 
     <dependencies>
@@ -63,6 +65,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${opencsv.version}</version>
         </dependency>
 
         <dependency>
