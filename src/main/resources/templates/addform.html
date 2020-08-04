@@ -1,39 +1,46 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Add Product | Acme</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   </head>
   <body>
     <a href="menu.html" th:href="@{/}">&lt; Menu</a>
-    <h1>Add a Product</h1>
-    <form action="#" th:action="@{/add}" th:object="${productForm}" method="post">
-        <div>
-            <input id="customerName" type="text" th:field="*{customerName}" />
-            <label for="customerName">Customer ID</label>
+    <div align="center" class="col-md-12">
+        <div class="col-md-6" style="text-align: left">
+            <h2>Add a Product</h2>
+            <form action="#" th:action="@{/add}" th:object="${productForm}" method="post">
+                <div class="form-group">
+                    <label for="customerName">Customer ID</label>
+                    <input id="customerName" type="text" class="form-control" th:field="*{customerName}" />
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}">
+                </div>
+                <div class="form-group">
+                    <label for="productType">Product</label>
+                    <select id="productType" class="form-control" th:field="*{productType}">
+                        <option value="">select product</option>
+                        <option th:each="productType : ${productTypes}" th:value="${productType.name}" th:text="${productType.label}"></option>
+                    </select>
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('productType')}" th:errors="*{productType}">
+                </div>
+                <div class="form-group">
+                    <label for="domain">Domain</label>
+                    <input id="domain" type="text" class="form-control" th:field="*{domain}" />
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('domain')}" th:errors="*{domain}">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration</label>
+                    <input id="duration" type="number" class="form-control" th:field="*{duration}" />
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <select id="productType" th:field="*{productType}">
-                <option value="">select product</option>
-                <option th:each="productType : ${productTypes}" th:value="${productType.name}" th:text="${productType.label}"></option>
-            </select>
-            <label for="productType">Product</label>
-        </div>
-        <div>
-            <input id="domain" type="text" th:field="*{domain}" />
-            <label for="domain">Domain</label>
-        </div>
-        <div>
-            <select id="durationMonths" name="durationMonths">
-                <option value="">select duration</option>
-                <option value="12">1 year</option>
-                <option value="24">2 years</option>
-                <option value="36">3 years</option>
-                <option value="60">5 years</option>
-                <option value="120">10 years</option>
-            </select>
-            <label for="durationMonths">Duration</label>
-        </div>
-    </form>
+    </div>
   </body>
 </html>
