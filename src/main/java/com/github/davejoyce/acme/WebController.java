@@ -91,6 +91,13 @@ public class WebController implements WebMvcConfigurer {
         }
     }
 
+    @GetMapping("/list")
+    public ModelAndView showProductList() {
+        ModelAndView mav = new ModelAndView("productlist");
+        mav.addObject("products", productService.listProducts());
+        return mav;
+    }
+
     void validateProductFormByType(ProductForm productForm, Errors errors) {
         Optional<ProductType> productType = Optional.ofNullable(productForm.getProductType());
         productType.ifPresent(type -> {

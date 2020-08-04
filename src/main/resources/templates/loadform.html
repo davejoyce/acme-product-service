@@ -14,7 +14,7 @@
             <form action="#" th:action="@{/load}" th:object="${productsForm}" method="post">
                 <div class="form-group">
                     <label for="csvProductEntries">Products to load (CSV)</label>
-                    <textarea id="csvProductEntries" type="" class="form-control" th:field="*{csvProductEntries}" cols="80" rows="10"></textarea>
+                    <textarea id="csvProductEntries" class="form-control" th:field="*{csvProductEntries}" cols="80" rows="10"></textarea>
                     <p class="alert alert-danger" th:if="${#fields.hasErrors('csvProductEntries')}" th:errors="*{csvProductEntries}">
                 </div>
                 <div class="form-group">

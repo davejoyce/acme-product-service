@@ -7,6 +7,7 @@ import com.github.davejoyce.acme.model.ProductType;
 import com.github.davejoyce.acme.model.repository.CustomerRepository;
 import com.github.davejoyce.acme.model.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -70,7 +71,7 @@ public class DefaultProductService implements ProductService {
     @Override
     @Transactional(readOnly = true)
     public List<Product> listProducts() {
-        return null;
+        return productRepository.findAll(Sort.by("customer"));
     }
 
     Product addDomainProduct(Optional<Product> existingRegistration,
